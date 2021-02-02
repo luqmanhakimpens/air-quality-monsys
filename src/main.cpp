@@ -302,7 +302,11 @@ void setup()
 	}
 
 	task_create_sensing();
-	task_create_telegram();
+
+	if(bot.getToken() != "")
+	{
+		task_create_telegram();
+	}
 
 }
 

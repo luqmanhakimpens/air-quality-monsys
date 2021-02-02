@@ -27,7 +27,7 @@
 #define LED 2
 
 // Telegram BOT Token (Get from Botfather)
-#define BOT_TOKEN "1495074745:AAH-gZZsuVAFpMloyXXicOmoK8XTHcBCZ90"
+#define BOT_TOKEN ""
 
 #define MODE_REQUEST 0
 #define MODE_CONTINUOUS 1

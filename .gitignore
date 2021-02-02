@@ -2,6 +2,8 @@
 .pioenvs
 .piolibdeps
 
+note.txt
+
 #vscode
 .vscode
 

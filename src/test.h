@@ -145,13 +145,13 @@ void esp_twilio_test()
 {
 	http_esp.begin("https://api.twilio.com/2010-04-01/Accounts/AC8f985c03276eb425f492487c373e03df/Messages.json");
 	//http.begin("http://192.168.0.9:8090/post");  //Specify destination for HTTP request
-	http_esp.setAuthorization("AC8f985c03276eb425f492487c373e03df", "250a62d63ee0cb85476b95614ad96704");
+	http_esp.setAuthorization("user", "token");
 	http_esp.addHeader("Content-Type", "application/x-www-form-urlencoded");             //Specify content-type header
 
 	String payload = get_sensor_as_string(&sensor);
 
-	int httpResponseCode = http_esp.POST("To=whatsapp:%2B6283831076129"
-											"&From=whatsapp:%2B14155238886"
+	int httpResponseCode = http_esp.POST("To=whatsapp:%2B6283831xxxxxx"
+											"&From=whatsapp:%2B1415523xxxx"
 											"&Body=" + payload); //Send the actual POST request
 
 	if(httpResponseCode > 0)

@@ -1,0 +1,140 @@
+<html>
+
+<head>
+  <title>EnviSense</title>
+  <script src="src/jquery-3.3.1.min.js"></script>
+  <script src="src/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="src/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Config</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <b>Device ID</b>
+      </div>
+      <div class="col">
+        %DEVICE_ID%
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-4">
+        <a href="/reboot"> <button class="btn btn-primary"> Reboot Devive</button> </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+    <form action="/network" method="post">
+      <input type="hidden" name="net_mode_selection" id="net_mode_selection" value=%NET_MODE%>
+      <div class="form-group row">
+        <label for="ap_ssid" class="col-sm-2 col-form-label">AP SSID</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="ap_ssid" name="ap_ssid" value="%AP_SSID%">
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <label for="ap_password" class="col-sm-2 col-form-label">AP
+          Password</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" id="ap_password" name="ap_password" value="%AP_PASSWORD%">
+        </div>
+      </div>
+      <br>
+      <fieldset class="form-group row">
+        <label for="sta_password" class="col-sm-2 col-form-label">Network Mode</label>
+        <div class="col-sm-6">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="network_mode" id="network_mode_wifi" value="wifi" onchange="network_form()" checked=true>
+            <label class="form-check-label" for="network_mode1">
+              WiFi
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="network_mode" id="network_mode_gsm" value="gsm" onchange="network_form()">
+            <label class="form-check-label" for="network_mode2">
+              GSM
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group row">
+        <label for="sta_ssid" class="col-sm-2 col-form-label">STA
+          SSID</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="sta_ssid" name="sta_ssid" value="%STA_SSID%">
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <label for="sta_password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" id="sta_password" name="sta_password" value="%STA_PASSWORD%">
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group row">
+        <label for="apn" class="col-sm-2 col-form-label">APN</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="apn" name="apn" value="%APN%">
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <label for="telegram_token" class="col-sm-2 col-form-label">Telegram Token</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="telegram_token" name="telegram_token" value="%TELEGRAM_TOKEN%">
+        </div>
+      </div>
+      <br>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <script type="text/javascript">
+    function network_form() {
+      if (document.getElementById("network_mode_wifi").checked == true) {
+        document.getElementById("sta_ssid").disabled = false
+        document.getElementById("sta_password").disabled = false
+        document.getElementById("apn").disabled = true
+      } else {
+        document.getElementById("sta_ssid").disabled = true
+        document.getElementById("sta_password").disabled = true
+        document.getElementById("apn").disabled = false
+      }
+    }
+
+    function check_net_mode() {
+      if (document.getElementById("net_mode_selection").value == "0") {
+        document.getElementById("network_mode_gsm").checked = false;
+        document.getElementById("network_mode_wifi").checked = true;
+      } else {
+        document.getElementById("network_mode_gsm").checked = true;
+        document.getElementById("network_mode_wifi").checked = false;
+      }
+      network_form();
+    }
+    check_net_mode();
+  </script>
+</body>
+
+</html>

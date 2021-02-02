@@ -1,0 +1,13 @@
+{
+	"net_mode":0,
+	"apn":"internet",
+	"telegram_token":"1495074745:AAH-gZZsuVAFpMloyXXicOmoK8XTHcBCZ90",
+	"ap":{
+		"ssid":"",
+		"password":"envi1234"
+	},
+	"sta":{
+		"ssid":"lts",
+		"password":"55555555"
+	}
+}

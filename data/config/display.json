@@ -1,0 +1,19 @@
+{
+	"dim":25,
+  	"dust": {
+	    "thLow": 100,
+	    "thHi": 200
+  	},
+ 	"temp": {
+	    "thLow": 27,
+	    "thHi": 32,
+	    "sclLow": 25,
+	    "sclHi": 35
+  },
+	"humid": {
+	    "thLow": 40,
+	    "thHi": 70,
+	    "sclLow": 0,
+	    "sclHi": 100
+  }
+}
